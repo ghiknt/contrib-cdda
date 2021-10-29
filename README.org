@@ -49,7 +49,9 @@ Project to keep my notes organized for "Cataclysm: Dark Days Ahead" (C:DDA) deve
 
      # Add .gitignore using gitignore.io with ~emacs~ and ~c++~ as a base
      git add .gitignore
-     git commit -m "feat: Initial gitignore file." -m "From https://www.toptal.com/developers/gitignore/api/emacs,c++." -m "SPDX-License-Identifier: MIT"
+     git commit -m "feat(config): Initial gitignore file." \
+	 -m "From https://www.toptal.com/developers/gitignore/api/emacs,c++." \
+	 -m "SPDX-License-Identifier: MIT"
 
      # Rename master to main to fit current conventions
      git branch -m master main
@@ -60,21 +62,19 @@ Project to keep my notes organized for "Cataclysm: Dark Days Ahead" (C:DDA) deve
      # Push main project to github
      git push -u github main
 
-
-
      # Save changes to README.org so we have a clean repository to allow the subtree add
      git add README.org
      git commit -m "doc: Updates to README.org"
 
      # Add C:DDA main branch
-     git subtree add --prefix src/cdda fork master
+     git subtree add --prefix src/cdda upstream master
 
      # Add C:DDA gh-pages branch
-     git subtree add --prefix src/cdda-gh-pages fork gh-pages
+     git subtree add --prefix src/cdda-gh-pages upstream gh-pages
 
      # Create initial branches tracking the upstream branches created by subtree
-     git branch --track upstream-master remotes/fork/master
-     git branch --track upstream-gh-pages remotes/fork/gh-pages
+     git branch --track upstream-master remotes/upstream/master
+     git branch --track upstream-gh-pages remotes/upstream/gh-pages
 
      # Commit README.org with setup and then push it all back to github
      git add README.org
