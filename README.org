@@ -86,6 +86,19 @@ Project to keep my notes organized for "Cataclysm: Dark Days Ahead" (C:DDA) deve
      git push github main
    #+end_src
 
+** Managing a topic branch
+
+   #+begin_src shell
+     # Make sure we are in sync with upstream
+     git checkout main
+     git subtree pull --prefix src/cdda upstream master
+     git subtree pull --prefix src/cdda-gh-pages upstream gh-pages
+
+     # Create and switch to  wip-* branch
+     git branch wip-nameGoesHere
+     git checkout wip-nameGoesHere
+   #+end_src
+   
 
 * Commit notes
   - The project encourages use of [[https://www.conventionalcommits.org/en/v1.0.0/#specification][Conventional Commits]]
