@@ -7,16 +7,17 @@ Project to keep my notes organized for "Cataclysm: Dark Days Ahead" (C:DDA) deve
     - cdda/    - ~git subtree~ of C:DDA master branch
     - cdda-gh-pages/ - ~git subtree~ of C:DDA gh-pages branch
 ** Branch Names
-   - remotes/
-     - upstream/
-       - gh-pages
-       - master
-     - github/
-       - main
    - main         - The main working branch	 
    - upstream-*   - Branches holding fetches from the main project
-   - pr-#-*       - Branches that will be submitted upstream as a pull request
-   - wip-*        - Branches that are unstable. **Warning** may be rebased 
+   - pr-*       - Branches that will be submitted upstream as a pull request
+   - wip-*        - Branches that are unstable. **Warning** may be rebased
+   - remotes/     - On dev machine remote pointing to github
+     - upstream/
+       - master   - Tracks master branch on "CleverRaven / Cataclysm-DDA"
+       - gh-pages - Tracks gh-pages brach on "CleverRaven / Cataclysm-DDA"
+     - github/
+       - main     - Tracks my main working branch on github
+
 ** GitHub
    Project development coordination is done on GitHub.  Structure supports
    pull requests like the rest of the developers.
@@ -32,7 +33,8 @@ Project to keep my notes organized for "Cataclysm: Dark Days Ahead" (C:DDA) deve
       - gh-pages renamed to upstream-gh-pages
       - 0-F-branch renamed to upstream-0-F-branch
       - All other forked branches deleted on github
-      - main created with master & gh-pages as git subtree's
+    - main branch created with master & gh-pages as git subtree's
+    - Pull requests will be submitted from pr-* branches
 
 * git commands
 ** Creation
@@ -81,52 +83,10 @@ Project to keep my notes organized for "Cataclysm: Dark Days Ahead" (C:DDA) deve
      # Commit README.org with setup and then push it all back to github
      git add README.org
      git commit -m "doc: Initial configuration commands added"
-     git push github main upstream-master upstream-gh-pages
+     git push github main
    #+end_src
 
-   - Use ideas from [[https://gist.github.com/maxrodrigo/b893bf76f68588766d602a57f10c4ff8][git-split-and-push.sh]] by [[https://gist.github.com/maxrodrigo][Max Rodrigo]] to push changes in smaller groups
 
-
-   #+begin_src shell
-
-     git-split-and-push () {
-	 git checkout $BRANCH
-	 # check if the branch exists on the remote
-	 if git show-ref --quiet --verify refs/remotes/$REMOTE/$BRANCH; then
-	     # if so, only push the commits that are not on the remote already
-	     range=$REMOTE/$BRANCH..HEAD
-	 else
-	     # else push all the commits
-	     range=HEAD
-	 fi
-	 # count the number of commits to push
-	 n=$(git log --first-parent --format=format:x $range | wc -l)
-
-	 # push each batch
-	 for i in $(seq $n -$BATCH_SIZE 1); do
-	     # get the hash of the commit to push
-	     h=$(git log --first-parent --reverse --format=format:%H --skip $i -n1)
-	     echo "Pushing $h..."
-	     git push $REMOTE $h:refs/heads/$BRANCH
-	 done
-
-	 # push the final partial batch
-	 git push $REMOTE HEAD:refs/heads/$BRANCH
-     }
-
-     REMOTE=github
-     BATCH_SIZE=500
-     # Do upstream-master
-     BRANCH=upstream-master
-     git-split-and-push
-     # Do upstream-gh-pages
-     BRANCH=upstream-gh-pages
-     git-split-and-push
-     # Do main
-     BRANCH=main
-     git-split-and-push
-   #+end_src
-   
 * Commit notes
   - The project encourages use of [[https://www.conventionalcommits.org/en/v1.0.0/#specification][Conventional Commits]]
     - types I use
