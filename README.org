@@ -76,12 +76,12 @@ Project to keep my notes organized for "Cataclysm: Dark Days Ahead" (C:DDA) deve
      git branch --track upstream-master remotes/upstream/master
      git branch --track upstream-gh-pages remotes/upstream/gh-pages
 
+     git push github upstream-master:upstream-master
+     git push github upstream-gh-pages:upstream-gh-pages
      # Commit README.org with setup and then push it all back to github
      git add README.org
      git commit -m "doc: Initial configuration commands added"
      git push github main upstream-master upstream-gh-pages
-     # Received ~remote: fatal: pack exceeds maximum allowed size~
-     # Fixed in next section
    #+end_src
 
    - Use ideas from [[https://gist.github.com/maxrodrigo/b893bf76f68588766d602a57f10c4ff8][git-split-and-push.sh]] by [[https://gist.github.com/maxrodrigo][Max Rodrigo]] to push changes in smaller groups
