@@ -1,5 +1,18 @@
 Project to keep my notes organized for "Cataclysm: Dark Days Ahead" (C:DDA) development
 
+* Documentation Contents
+  - [[file:buildTestVersion.org][Build Test Version]]
+
+* In-Repo Project Documentation
+  - [[file:src/cdda/.github/CONTRIBUTING.md][Contribute]] guidelines
+  - [[file:src/cdda/doc/CODE_STYLE.md][Code Style Guide]]
+
+* Other useful C:DDA links
+  - [[https://cataclysmdda.org/][Main site]] - Generated using [[file:src/cdda-gh-pages/][GitHub Pages]]
+  - [[https://github.com/CleverRaven/Cataclysm-DDA][Offical Repository]]
+    - [[https://github.com/CleverRaven/Cataclysm-DDA/issues?q=is%3Aissue+sort%3Aupdated-desc+][Recently Updated Issues]]
+    - [[https://github.com/CleverRaven/Cataclysm-DDA/pulls?q=is%3Apr+sort%3Aupdated-desc][Recently Updated Pull Requests]]
+ - Development discussion is done on the "Cataclysm: Dark Days Ahead" [[https://discord.com][Discord Server]]
 * Organization
 ** Directory Structure
   - README.org - This file

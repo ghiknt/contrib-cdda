@@ -1,0 +1,33 @@
+* Build a test version of C:DDA
+
+  #+begin_src shell
+    # Build requirements
+    sudo apt-get install libsdl2-dev
+    sudo apt install libsdl2-image-dev libsdl2-image-2.0-0
+    sudo apt install libsdl2-mixer-dev libsdl2-mixer-2.0-0
+    sudo apt install libsdl2-ttf-dev libsdl2-ttf-2.0-0
+    sudo apt install astyle
+
+    # Build a new clean test version
+    cd src/cdda
+    make clean
+    # Build
+    VERSION=`git describe`
+    NOW=`date +%Y%m%d%H%M%S`
+    DIR=/opt/cdda-test/${VERSION}-built-${NOW}
+    make -j16 CCACHE=1 RELEASE=1 TILES=1 SOUND=1 PREFIX=$DIR
+    #Install
+    make -j16 CCACHE=1 RELEASE=1 TILES=1 SOUND=1 PREFIX=$DIR install
+
+    # Link latest to run
+    mkdir -p /opt/cdda-test/bin/
+    mkdir -p /opt/cdda-test/user-dir/
+    rm /opt/cdda-test/bin/cataclysm-tiles
+    ln -s ${DIR}/bin/cataclysm-tiles /opt/cdda-test/bin/
+
+    # To Run
+    #  tests
+    tests/cata_test --help
+    #  game
+    /opt/cdda-test/bin/cataclysm-tiles --userdir /opt/cdda-test/userdir/
+  #+end_src
