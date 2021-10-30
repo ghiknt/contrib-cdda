@@ -1,6 +1,13 @@
 * TODO Issue: Zero Calorie food on some batch cooking
 
 * NEXT GitHub Issues
+  Existing issues that might be related or touched when fixing this
+  - [[https://github.com/CleverRaven/Cataclysm-DDA/issues/52429][Batch-cooking sweetbreads results in 0 calories product, that turns into 1000%+ nominal calories product after a reload. #52429]]
+  - [[https://github.com/CleverRaven/Cataclysm-DDA/issues/52020][No longer being able to mix liquids of same type/calories in the same container #52020]]
+  - [[https://github.com/CleverRaven/Cataclysm-DDA/issues/51934][Extra calories appear in food after preparation (with frozen ingredients) #51934]]
+  - [[https://github.com/CleverRaven/Cataclysm-DDA/issues/51606][oats, oatmeal and cooked oatmeal calorie bug means haggis disobeys thermodynamic laws #51606]]
+  - [[https://github.com/CleverRaven/Cataclysm-DDA/issues/51361][Fish fillets sometimes have zero calories. #51361]]
+    
 * TODO Fix the problem
 ** NEXT Generate reproduction test case
 ** WAITING Determine Cause
