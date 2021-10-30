@@ -1,0 +1,8 @@
+* TODO Issue: Zero Calorie food on some batch cooking
+
+* NEXT GitHub Issues
+* TODO Fix the problem
+** NEXT Generate reproduction test case
+** WAITING Determine Cause
+** WAITING Fix it
+* WAITING Submit PR

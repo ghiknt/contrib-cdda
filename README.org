@@ -16,6 +16,7 @@ Project to keep my notes organized for "Cataclysm: Dark Days Ahead" (C:DDA) deve
 * Organization
 ** Directory Structure
   - README.org - This file
+  - [[file://issues/][issues/]]    - Notes on investigation of issue     
   - src/
     - cdda/    - ~git subtree~ of C:DDA master branch
     - cdda-gh-pages/ - ~git subtree~ of C:DDA gh-pages branch
